@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" fill="none">
+  <defs>
+    <linearGradient id="bg-sedan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="line-sedan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0F172A" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#0F172A" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.2"/>
+    </linearGradient>
+    <radialGradient id="shadow-sedan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0F172A" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg-sedan)"/>
+  <!-- Studio lighting grid lines -->
+  <line x1="80" y1="360" x2="720" y2="360" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4 8"/>
+  <ellipse cx="400" cy="360" rx="320" ry="16" fill="url(#shadow-sedan)"/>
+  
+  <!-- Sleek Fastback / Sedan Silhouette -->
+  <path d="M 160 330 
+           C 165 315, 185 295, 220 290 
+           L 290 285 
+           C 340 250, 420 220, 500 220 
+           C 550 220, 600 240, 630 275 
+           L 660 310 
+           C 665 320, 660 330, 645 330
+           L 590 330
+           A 42 42 0 0 0 506 330
+           L 304 330
+           A 42 42 0 0 0 220 330
+           Z" 
+        fill="#FFFFFF" stroke="url(#line-sedan)" stroke-width="2.5" stroke-linejoin="round"/>
+        
+  <!-- Roofline / Glass Area -->
+  <path d="M 330 280 
+           C 365 245, 430 230, 495 230 
+           C 530 230, 565 245, 590 278 
+           Z" 
+        fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+  <line x1="450" y1="230" x2="455" y2="280" stroke="#CBD5E1" stroke-width="1.5"/>
+
+  <!-- Wheels -->
+  <circle cx="262" cy="330" r="32" fill="#1E293B" stroke="#64748B" stroke-width="4"/>
+  <circle cx="262" cy="330" r="14" fill="#E2E8F0"/>
+  <circle cx="548" cy="330" r="32" fill="#1E293B" stroke="#64748B" stroke-width="4"/>
+  <circle cx="548" cy="330" r="14" fill="#E2E8F0"/>
+
+  <!-- Technical Brand Details -->
+  <text x="400" y="80" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" font-weight="600" fill="#64748B" letter-spacing="3">MOTIONBAY STUDIO // ARCHIVE SILHOUETTE</text>
+  <text x="400" y="105" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="500" fill="#0F172A">AERODYNAMIC FASTBACK PROFILE</text>
+</svg>

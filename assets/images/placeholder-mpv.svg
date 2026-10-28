@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" fill="none">
+  <defs>
+    <linearGradient id="bg-mpv" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="line-mpv" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0F172A" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#0F172A" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.2"/>
+    </linearGradient>
+    <radialGradient id="shadow-mpv" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0F172A" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg-mpv)"/>
+  <line x1="80" y1="360" x2="720" y2="360" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4 8"/>
+  <ellipse cx="400" cy="360" rx="320" ry="16" fill="url(#shadow-mpv)"/>
+  
+  <!-- MPV Profile -->
+  <path d="M 160 325 
+           L 170 275 
+           L 245 260 
+           L 320 205 
+           L 610 205 
+           L 645 265 
+           L 655 325
+           L 600 325
+           A 42 42 0 0 0 516 325
+           L 304 325
+           A 42 42 0 0 0 220 325
+           Z" 
+        fill="#FFFFFF" stroke="url(#line-mpv)" stroke-width="2.5" stroke-linejoin="round"/>
+        
+  <!-- Multi-passenger windows -->
+  <path d="M 325 215 
+           L 600 215 
+           L 630 255 
+           L 305 255 
+           Z" 
+        fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+  <line x1="410" y1="215" x2="410" y2="255" stroke="#CBD5E1" stroke-width="1.5"/>
+  <line x1="510" y1="215" x2="510" y2="255" stroke="#CBD5E1" stroke-width="1.5"/>
+
+  <!-- Wheels -->
+  <circle cx="262" cy="325" r="34" fill="#1E293B" stroke="#64748B" stroke-width="4"/>
+  <circle cx="262" cy="325" r="15" fill="#E2E8F0"/>
+  <circle cx="558" cy="325" r="34" fill="#1E293B" stroke="#64748B" stroke-width="4"/>
+  <circle cx="558" cy="325" r="15" fill="#E2E8F0"/>
+
+  <text x="400" y="80" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" font-weight="600" fill="#64748B" letter-spacing="3">MOTIONBAY STUDIO // ARCHIVE SILHOUETTE</text>
+  <text x="400" y="105" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="500" fill="#0F172A">MULTI-PURPOSE 7-PASSENGER ARCHITECTURE</text>
+</svg>

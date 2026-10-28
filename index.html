@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MOTIONBAY — Showroom digital otomotif premium dengan integrasi 3D interaktif real-time dan katalog kendaraan terverifikasi.">
+  <meta name="theme-color" content="#FBFBFD">
+  <title>MOTIONBAY — Premium Automotive Digital Showroom</title>
+
+  <!-- Typography: Inter & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Google <model-viewer> Web Component -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Skip Navigation for Accessibility -->
+  <a href="#collection" class="skip-link">Langsung ke Katalog Mobil</a>
+
+  <!-- Floating Liquid Glass Header Navigation -->
+  <header class="site-header">
+    <div class="nav-container glass-panel">
+      <a href="#" class="brand-logo" aria-label="MOTIONBAY Beranda">
+        <span class="brand-name">MOTIONBAY</span>
+        <span class="brand-badge">SHOWROOM</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navigasi Utama">
+        <ul class="nav-list">
+          <li><a href="#featured-3d" class="nav-link active">3D Showcase</a></li>
+          <li><a href="#collection" class="nav-link">Katalog Mobil</a></li>
+          <li><a href="#about" class="nav-link">Filosofi</a></li>
+          <li><a href="#editorial" class="nav-link">Teknologi</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#collection" class="btn btn-primary btn-sm">
+          <span>Jelajahi Fleet</span>
+          <img src="assets/icons/arrow-right.svg" alt="" width="16" height="16" class="btn-icon">
+        </a>
+        <button type="button" class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobileNav">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav glass-panel" id="mobileNav" hidden>
+      <ul class="mobile-nav-list">
+        <li><a href="#featured-3d" class="mobile-nav-link">3D Showcase</a></li>
+        <li><a href="#collection" class="mobile-nav-link">Katalog Mobil</a></li>
+        <li><a href="#about" class="mobile-nav-link">Filosofi</a></li>
+        <li><a href="#editorial" class="mobile-nav-link">Teknologi</a></li>
+      </ul>
+      <div class="mobile-nav-footer">
+        <a href="#collection" class="btn btn-primary btn-block">Jelajahi Koleksi</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+  <!-- Hero Section - Premium Multi-Brand Automotive -->
+  <section id="featured-3d" class="hero-section" aria-labelledby="hero-title">
+    <div class="container hero-container">
+
+      <!-- Hero Editorial Copy -->
+      <div class="hero-header">
+        <div class="eyebrow-tag">
+          <span class="pulse-dot"></span>
+          <span>PREMIUM AUTOMOTIVE COLLECTION</span>
+        </div>
+
+        <h1 id="hero-title" class="hero-title">
+          Driven by Innovation.<br>
+          <span class="text-gradient">Defined by Excellence.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Temukan pengalaman baru dalam menjelajahi dunia otomotif.
+          Eksplorasi berbagai merek, model, dan teknologi kendaraan
+          melalui showroom digital interaktif dengan visualisasi 3D.
+        </p>
+
+        <!-- Multi-Brand Showcase Highlights -->
+        <div class="hero-specs-row" aria-label="Keunggulan MOTIONBAY">
+          <div class="spec-pill">
+            <span class="spec-value">Multi-Brand</span>
+            <span class="spec-label">Beragam Merek</span>
+          </div>
+
+          <div class="spec-divider"></div>
+
+          <div class="spec-pill">
+            <span class="spec-value">3D View</span>
+            <span class="spec-label">Visualisasi Interaktif</span>
+          </div>
+
+          <div class="spec-divider"></div>
+
+          <div class="spec-pill">
+            <span class="spec-value">Premium</span>
+            <span class="spec-label">Pilihan Kendaraan</span>
+          </div>
+
+          <div class="spec-divider"></div>
+
+          <div class="spec-pill">
+            <span class="spec-value">Explore</span>
+            <span class="spec-label">Temukan Pilihanmu</span>
+          </div>
+        </div>
+
+          <div class="hero-cta-group">
+            <a href="#collection" class="btn btn-primary btn-lg">
+              <span>Buka Katalog Kendaraan</span>
+              <img src="assets/icons/arrow-right.svg" alt="" width="18" height="18">
+            </a>
+            <button type="button" class="btn btn-secondary btn-lg" id="btnFocusModel">
+              <img src="assets/icons/rotate.svg" alt="" width="18" height="18">
+              <span>Reset Sudut Kamera</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3D Model Viewer Canvas Container -->
+        <div class="hero-viewer-wrapper">
+          <div class="viewer-card">
+            <!-- Studio Light Accents -->
+            <div class="studio-ambient-light" aria-hidden="true"></div>
+
+            <!-- Model Viewer -->
+            <model-viewer
+              id="heroModelViewer"
+              src="assets/models/byd-seal.glb"
+              alt="Model 3D interaktif BYD Seal sedan performa listrik"
+              camera-controls
+              touch-action="pan-y"
+              interaction-prompt="none"
+              camera-orbit="38deg 78deg 6.8m"
+              min-camera-orbit="auto auto 3.5m"
+              max-camera-orbit="auto auto 10.5m"
+              field-of-view="32deg"
+              shadow-intensity="1.2"
+              shadow-softness="0.75"
+              exposure="1.05"
+              bounds="tight"
+              loading="eager"
+            >
+              <!-- Poster / Loading State -->
+              <div slot="poster" class="viewer-poster" id="viewerPoster">
+                <div class="poster-spinner"></div>
+                <p class="poster-text">Memuat Model 3D BYD Seal ...</p>
+                <span class="poster-subtext">Menginisialisasi visualisasi WebGL</span>
+              </div>
+
+              <!-- Fallback State (WebGL / Load Error) -->
+              <div id="viewerFallback" class="viewer-fallback" hidden>
+                <div class="fallback-icon">
+                  <img src="assets/icons/info.svg" alt="" width="32" height="32">
+                </div>
+                <h3>Model 3D Tidak Dapat Dimuat</h3>
+                <p>Browser Anda sedang memproses memori atau WebGL tidak didukung pada perangkat ini.</p>
+                <button type="button" class="btn btn-secondary btn-sm" id="btnRetryModel">
+                  <img src="assets/icons/rotate.svg" alt="" width="16" height="16">
+                  <span>Coba Muat Ulang</span>
+                </button>
+              </div>
+            </model-viewer>
+
+            <!-- Floating Liquid Glass 3D Interaction Toolbar -->
+            <div class="viewer-controls-bar glass-panel" aria-label="Kontrol Interaksi 3D">
+              <div class="interaction-hint">
+                <span class="hint-icon">
+                  <img src="assets/icons/rotate.svg" alt="" width="16" height="16">
+                </span>
+                <span class="hint-text">Geser untuk memutar &bull; Scroll untuk zoom</span>
+              </div>
+
+              <div class="camera-presets-group">
+                <span class="preset-label">Prespektif:</span>
+                <button type="button" class="preset-btn active" data-orbit="38deg 78deg 6.8m" title="Tampak Depan Tiga Perempat">3/4 Depan</button>
+                <button type="button" class="preset-btn" data-orbit="90deg 85deg 6.5m" title="Tampak Profil Samping">Samping</button>
+                <button type="button" class="preset-btn" data-orbit="220deg 80deg 7m" title="Tampak Belakang Tiga Perempat">3/4 Belakang</button>
+                <button type="button" class="preset-btn" data-orbit="0deg 88deg 6.2m" title="Tampak Depan Lurus">Depan</button>
+              </div>
+
+              <div class="viewer-actions-group">
+                <button type="button" class="icon-toggle-btn" id="btnToggleAutoRotate" title="Nyalakan / Matikan Rotasi Otomatis Santai" aria-pressed="false">
+                  <span class="toggle-indicator"></span>
+                  <span class="toggle-text">Auto-Orbit</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Introduction / Philosophy Section -->
+    <section id="about" class="section brand-intro-section" aria-labelledby="intro-title">
+      <div class="container">
+        <div class="editorial-grid">
+          <div class="editorial-col-intro">
+            <span class="section-tag">FILOSOFI MOTIONBAY</span>
+            <h2 id="intro-title" class="section-title">
+              Mendefinisikan Ulang Pengalaman Digital Otomotif.
+            </h2>
+            <p class="section-lead">
+              MOTIONBAY hadir sebagai platform kurasi kendaraan modern yang mengedepankan integritas data, transparansi harga OTR, dan visualisasi berkualitas tinggi tanpa distorsi.
+            </p>
+          </div>
+
+          <div class="editorial-col-pillars">
+            <div class="pillar-card glass-card">
+              <div class="pillar-number">01</div>
+              <h3 class="pillar-title">Telemetri &amp; Akurasi Visual</h3>
+              <p class="pillar-desc">
+                Setiap spesifikasi divalidasi langsung dari basis data resmi BTNG. Kami menolak manipulasi gambar stok acak demi menjaga transparansi informasi teknis kepada calon pembeli.
+              </p>
+            </div>
+
+            <div class="pillar-card glass-card">
+              <div class="pillar-number">02</div>
+              <h3 class="pillar-title">Visualisasi 3D WebGL Murni</h3>
+              <p class="pillar-desc">
+                Integrasi komponen modern Google &lt;model-viewer&gt; menghadirkan pengalaman inspeksi bodi mobil 360 derajat yang ringan, responsif, dan tanpa ketergantungan framework berat.
+              </p>
+            </div>
+
+            <div class="pillar-card glass-card">
+              <div class="pillar-number">03</div>
+              <h3 class="pillar-title">Spektrum Powertrain Lengkap</h3>
+              <p class="pillar-desc">
+                Menjembatani transisi mobilitas Indonesia dengan menghadirkan perbandingan objektif antara kendaraan Listrik Murni (BEV), Hybrid Efisiensi Tinggi (HEV), dan Mesin Bensin/Diesel Konvensional.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Vehicle Collection Section -->
+    <section id="collection" class="section collection-section" aria-labelledby="collection-title">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="collection-header">
+          <div>
+            <span class="section-tag">LIVE INVENTORY // BTNG API SYNC</span>
+            <h2 id="collection-title" class="section-title">Koleksi Kendaraan Pilihan</h2>
+            <p class="collection-subtitle">
+              Jelajahi armada mobil yang tersedia secara real-time. Gunakan filter presisi untuk menemukan kendaraan yang sesuai dengan kriteria mobilitas Anda.
+            </p>
+          </div>
+
+          <!-- Data Pipeline Health Indicator -->
+          <div class="pipeline-status-badge glass-panel" id="pipelineStatus" title="Status integrasi endpoint API BTNG">
+            <span class="status-indicator-dot online"></span>
+            <span class="pipeline-text">Endpoint API Terhubung</span>
+          </div>
+        </div>
+
+        <!-- Liquid Glass Filter and Search Control Bar -->
+        <div class="collection-controls-bar glass-panel" role="region" aria-label="Pencarian dan Filter Kendaraan">
+          <!-- Top Row: Search and Quick Reset -->
+          <div class="controls-top-row">
+            <div class="search-field-wrapper">
+              <img src="assets/icons/search.svg" alt="" width="18" height="18" class="search-icon" aria-hidden="true">
+              <input
+                type="search"
+                id="searchInput"
+                class="search-input"
+                placeholder="Cari berdasarkan model atau brand (cth. BYD, Fortuner, CR-V)..."
+                aria-label="Cari nama mobil atau brand"
+                autocomplete="off"
+              >
+              <button type="button" id="searchClearBtn" class="search-clear-btn" aria-label="Hapus kata kunci pencarian" hidden>
+                <img src="assets/icons/close.svg" alt="" width="14" height="14">
+              </button>
+            </div>
+
+            <!-- Clear All Filters Button -->
+            <button type="button" id="clearFiltersBtn" class="btn btn-ghost btn-sm" disabled>
+              <img src="assets/icons/close.svg" alt="" width="14" height="14">
+              <span>Reset Filter</span>
+            </button>
+          </div>
+
+          <!-- Filter Dropdowns Row -->
+          <div class="controls-filters-row">
+            <!-- Brand Filter -->
+            <div class="filter-group">
+              <label for="brandFilter" class="filter-label">Brand</label>
+              <div class="select-wrapper">
+                <select id="brandFilter" class="filter-select">
+                  <option value="all">Semua Brand</option>
+                  <!-- Populated dynamically from API -->
+                </select>
+              </div>
+            </div>
+
+            <!-- Fuel Type Filter -->
+            <div class="filter-group">
+              <label for="fuelFilter" class="filter-label">Bahan Bakar</label>
+              <div class="select-wrapper">
+                <select id="fuelFilter" class="filter-select">
+                  <option value="all">Semua Powertrain</option>
+                  <option value="Listrik">Listrik (EV)</option>
+                  <option value="Hybrid">Hybrid (HEV)</option>
+                  <option value="Bensin">Bensin</option>
+                  <option value="Diesel">Diesel</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Availability Status Filter -->
+            <div class="filter-group">
+              <label for="statusFilter" class="filter-label">Ketersediaan</label>
+              <div class="select-wrapper">
+                <select id="statusFilter" class="filter-select">
+                  <option value="all">Semua Status</option>
+                  <option value="tersedia">Hanya Tersedia</option>
+                  <option value="sold">Terjual / Sold</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Sorting Filter -->
+            <div class="filter-group">
+              <label for="sortSelect" class="filter-label">Urutkan</label>
+              <div class="select-wrapper">
+                <select id="sortSelect" class="filter-select">
+                  <option value="default">Rekomendasi</option>
+                  <option value="price-asc">Harga: Termurah &rarr; Termahal</option>
+                  <option value="price-desc">Harga: Termahal &rarr; Termurah</option>
+                  <option value="year-desc">Tahun: Terbaru</option>
+                  <option value="year-asc">Tahun: Terlama</option>
+                  <option value="name-asc">Nama: A &rarr; Z</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Verification Toggle Bar (Transparency Mode) -->
+          <div class="verification-banner" id="verificationBanner">
+            <div class="verification-badge">
+              <img src="assets/icons/shield.svg" alt="" width="14" height="14">
+              <span>Kurasi Visual Presisi Aktif</span>
+            </div>
+            <p class="verification-text">
+              Foto kendaraan telah diverifikasi presisi sesuai model fisik asli demi menjaga transparansi spesifikasi tanpa distorsi stok pihak ketiga.
+            </p>
+            <label class="toggle-switch-label" title="Alihkan antara foto terverifikasi dan foto stok mentah API">
+              <input type="checkbox" id="rawApiPhotosToggle">
+              <span class="toggle-slider"></span>
+              <span class="toggle-label-text">Tampilkan Foto Mentah API</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Live Results Meta Bar -->
+        <div class="collection-meta-bar" aria-live="polite">
+          <p class="results-count" id="resultsCount">Memuat data armada...</p>
+          <div class="active-chips-container" id="activeChipsContainer"></div>
+        </div>
+
+        <!-- Vehicle Cards Grid (Populated via JS) -->
+        <div class="vehicles-grid" id="vehiclesGrid" role="feed" aria-busy="true">
+          <!-- Skeleton Loading Placeholders will be rendered here initialy -->
+        </div>
+
+        <!-- Error State Container (hidden by default) -->
+        <div class="collection-state-card error-card glass-card" id="errorState" hidden>
+          <div class="state-icon-box error">
+            <img src="assets/icons/info.svg" alt="" width="28" height="28">
+          </div>
+          <h3 class="state-title">Koneksi ke Endpoint API Terkendala</h3>
+          <p class="state-desc" id="errorMessage">
+            Tidak dapat mengambil data inventaris dari server BTNG. Pastikan koneksi internet Anda aktif atau coba sesaat lagi.
+          </p>
+          <button type="button" class="btn btn-primary" id="retryFetchBtn">
+            <img src="assets/icons/rotate.svg" alt="" width="16" height="16">
+            <span>Coba Hubungkan Kembali</span>
+          </button>
+        </div>
+
+        <!-- Empty State Container (hidden by default) -->
+        <div class="collection-state-card empty-card glass-card" id="emptyState" hidden>
+          <div class="state-icon-box">
+            <img src="assets/icons/search.svg" alt="" width="28" height="28">
+          </div>
+          <h3 class="state-title">Tidak Ada Mobil yang Cocok</h3>
+          <p class="state-desc">
+            Kombinasi filter atau kata kunci pencarian Anda tidak menghasilkan kendaraan yang sesuai.
+          </p>
+          <button type="button" class="btn btn-secondary" id="emptyResetBtn">
+            <span>Kembalikan Semua Filter</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editorial: Technology & Discovering Vehicles Section -->
+    <section id="editorial" class="section editorial-section" aria-labelledby="editorial-title">
+      <div class="container">
+        <div class="editorial-heading-block">
+          <span class="section-tag">DISCOVERING VEHICLES // MOTIONBAY EDITORIAL</span>
+          <h2 id="editorial-title" class="section-title">
+            Memilih Arsitektur Powertrain yang Tepat
+          </h2>
+          <p class="section-lead">
+            Evolusi teknologi otomotif menghadirkan pilihan propulsi yang beragam. Pahami karakter mekanis masing-masing sebelum menentukan unit impian Anda.
+          </p>
+        </div>
+
+        <div class="tech-comparison-grid">
+          <!-- Card 1: Electric -->
+          <article class="tech-card glass-card">
+            <div class="tech-card-header">
+              <div class="tech-icon-pill">
+                <img src="assets/icons/fuel.svg" alt="" width="18" height="18">
+                <span>BEV // LISTRIK MURNI</span>
+              </div>
+              <span class="tech-metric">0 Emisi Gas Buang</span>
+            </div>
+            <h3 class="tech-title">Akselerasi Instan &amp; Efisiensi Total</h3>
+            <p class="tech-body">
+              Menggunakan paket baterai berdensitas tinggi yang diletakkan pada sasis rendah (skateboard architecture). Menghasilkan center of gravity optimal, kabin kedap suara maksimal, serta torsi instan sejak putaran nol.
+            </p>
+            <div class="tech-sample-models">
+              <span class="sample-label">Model Terkait:</span>
+              <span class="sample-badge">BYD Seal</span>
+              <span class="sample-badge">Hyundai Ioniq 5</span>
+              <span class="sample-badge">Wuling Air EV</span>
+            </div>
+          </article>
+
+          <!-- Card 2: Hybrid -->
+          <article class="tech-card glass-card">
+            <div class="tech-card-header">
+              <div class="tech-icon-pill">
+                <img src="assets/icons/fuel.svg" alt="" width="18" height="18">
+                <span>HEV // INTELLIGENT HYBRID</span>
+              </div>
+              <span class="tech-metric">Konsumsi &gt; 20 km/L</span>
+            </div>
+            <h3 class="tech-title">Sinergi Dual-Mesin Tanpa Kendala Charging</h3>
+            <p class="tech-body">
+              Menggabungkan mesin siklus Atkinson dengan motor listrik dan pengereman regeneratif. Memberikan kebebasan jarak tempuh antar kota tanpa harus menunggu stasiun pengisian daya publik.
+            </p>
+            <div class="tech-sample-models">
+              <span class="sample-label">Model Terkait:</span>
+              <span class="sample-badge">Innova Zenix Hybrid</span>
+              <span class="sample-badge">Honda CR-V e:HEV</span>
+            </div>
+          </article>
+
+          <!-- Card 3: Refined ICE & Diesel -->
+          <article class="tech-card glass-card">
+            <div class="tech-card-header">
+              <div class="tech-icon-pill">
+                <img src="assets/icons/fuel.svg" alt="" width="18" height="18">
+                <span>ICE &amp; TURBO DIESEL</span>
+              </div>
+              <span class="tech-metric">Daya Jelajah Ekstrem</span>
+            </div>
+            <h3 class="tech-title">Torsi Tangguh pada Segala Medan Ekstrem</h3>
+            <p class="tech-body">
+              Pilihan ideal untuk petualangan lintas pulau dan medan berat. Sasis ladder-frame yang dipadukan penggerak 4x4 mekanis memberikan durabilitas tak tertandingi pada kondisi geografis Nusantara.
+            </p>
+            <div class="tech-sample-models">
+              <span class="sample-label">Model Terkait:</span>
+              <span class="sample-badge">Toyota Fortuner 2.8</span>
+              <span class="sample-badge">Pajero Sport</span>
+              <span class="sample-badge">Suzuki Jimny 4x4</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Accessible Detail Modal Dialog -->
+  <dialog id="vehicleModal" class="vehicle-modal glass-dialog" closedby="any" aria-labelledby="modalVehicleName" aria-modal="true">
+    <div class="modal-dialog-content">
+      <!-- Modal Close Button -->
+      <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup rincian kendaraan">
+        <img src="assets/icons/close.svg" alt="" width="20" height="20">
+      </button>
+
+      <!-- Modal Visual Header -->
+      <div class="modal-media-wrapper">
+        <img src="" alt="" id="modalVehicleImage" class="modal-media-image">
+        <div class="modal-status-pill" id="modalStatusPill">Tersedia</div>
+        <div class="modal-verification-tag" id="modalVerificationTag">
+          <img src="assets/icons/shield.svg" alt="" width="14" height="14">
+          <span id="modalVerificationText">Data Terverifikasi</span>
+        </div>
+      </div>
+
+      <!-- Modal Body Content -->
+      <div class="modal-body">
+        <div class="modal-brand-tag" id="modalVehicleBrand">BRAND</div>
+        <h2 class="modal-title" id="modalVehicleName">Nama Mobil</h2>
+        <div class="modal-price-box">
+          <span class="price-prefix">Estimasi Harga OTR</span>
+          <span class="modal-price-value" id="modalVehiclePrice">Rp 0</span>
+        </div>
+
+        <!-- Technical Specification Grid -->
+        <h3 class="modal-section-heading">Spesifikasi Unit Terdaftar</h3>
+        <div class="modal-specs-grid">
+          <div class="modal-spec-item">
+            <span class="modal-spec-icon">
+              <img src="assets/icons/calendar.svg" alt="" width="16" height="16">
+            </span>
+            <div class="modal-spec-text">
+              <span class="spec-prop">Tahun Pembuatan</span>
+              <span class="spec-data" id="modalVehicleYear">-</span>
+            </div>
+          </div>
+
+          <div class="modal-spec-item">
+            <span class="modal-spec-icon">
+              <img src="assets/icons/transmission.svg" alt="" width="16" height="16">
+            </span>
+            <div class="modal-spec-text">
+              <span class="spec-prop">Sistem Transmisi</span>
+              <span class="spec-data" id="modalVehicleTransmission">-</span>
+            </div>
+          </div>
+
+          <div class="modal-spec-item">
+            <span class="modal-spec-icon">
+              <img src="assets/icons/fuel.svg" alt="" width="16" height="16">
+            </span>
+            <div class="modal-spec-text">
+              <span class="spec-prop">Jenis Bahan Bakar</span>
+              <span class="spec-data" id="modalVehicleFuel">-</span>
+            </div>
+          </div>
+
+          <div class="modal-spec-item">
+            <span class="modal-spec-icon">
+              <img src="assets/icons/info.svg" alt="" width="16" height="16">
+            </span>
+            <div class="modal-spec-text">
+              <span class="spec-prop">Nomor Identifikasi Unit</span>
+              <span class="spec-data" id="modalVehicleId">#0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Verification Disclaimer in Modal -->
+        <div class="modal-notice-box" id="modalNoticeBox">
+          <img src="assets/icons/info.svg" alt="" width="16" height="16" class="notice-icon">
+          <p id="modalNoticeText" class="notice-text">
+            Data spesifikasi disinkronkan secara langsung melalui API BTNG DNCC Udinus.
+          </p>
+        </div>
+
+        <!-- Modal Action Buttons -->
+        <div class="modal-actions-row">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" id="modalContactBtn">
+            <span>Konsultasi Showroom via WhatsApp</span>
+            <img src="assets/icons/arrow-right.svg" alt="" width="16" height="16">
+          </a>
+          <button type="button" class="btn btn-secondary" id="modalDismissBtn">
+            <span>Tutup Rincian</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top-row">
+        <div class="footer-brand-col">
+          <div class="brand-logo">
+            <span class="brand-name">MOTIONBAY</span>
+            <span class="brand-badge">SHOWROOM</span>
+          </div>
+          <p class="footer-tagline">
+            Automotive Digital Showroom &bull; Pengalaman kurasi mobil masa depan dengan visualisasi 3D presisi tinggi.
+          </p>
+          <div class="tech-pills-row">
+            <span class="tech-badge">HTML5 Semantic</span>
+            <span class="tech-badge">CSS3 Liquid Glass</span>
+            <span class="tech-badge">Vanilla JavaScript</span>
+            <span class="tech-badge">&lt;model-viewer&gt;</span>
+            <span class="tech-badge">BTNG REST API</span>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Navigasi Langsung</h4>
+          <ul class="footer-links">
+            <li><a href="#featured-3d">3D BYD Seal Showcase</a></li>
+            <li><a href="#collection">Koleksi Kendaraan</a></li>
+            <li><a href="#about">Filosofi Showroom</a></li>
+            <li><a href="#editorial">Panduan Powertrain</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-project-col">
+          <h4 class="footer-heading">Informasi Akademik</h4>
+          <p class="footer-text">
+            Tugas Akhir Bayu Aji Panenggar pada BTNG Frontend Web Development.<br>
+            Diintegrasikan dengan API BTNG DNCC UDINUS.
+          </p>
+          <p class="footer-credit">
+            Aset 3D BYD Seal: karya <em>Ddiaz Design</em> berlisensi Creative Commons (CC-BY-NC-SA 4.0).
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <p class="copyright-text">
+          &copy; 2026 MOTIONBAY Automotive Digital Showroom. All rights reserved.
+        </p>
+        <button type="button" class="back-to-top-btn" id="backToTopBtn" aria-label="Kembali ke atas halaman">
+          <span>Kembali ke Atas</span>
+          <img src="assets/icons/arrow-right.svg" alt="" width="14" height="14" style="transform: rotate(-90deg);">
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Script -->
+  <script src="script.js"></script>
+</body>
+</html>
